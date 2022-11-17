@@ -40,9 +40,9 @@ If 75% of donors vote yes, the funds are released!
 
 If this consensus cannot be reached, the funds are returned to donors.
 
-I haven't planned the structure of this app yet because I am unsure whether
-I am going to have it be just a backend API or have a client side as well.
-It depends on how the cryptocaml library is made.
+I haven't planned the structure of this app yet because it depends on
+how the cryptocaml library is made. However, for the basic structure,
+I am thinking of making it just a backend API that utilizes cryptocaml.
 
 ## Libraries
 
