@@ -1,0 +1,18 @@
+(** @canonical Cryptocaml.Abi *)
+module Abi = Cryptocaml__Abi
+
+
+(** @canonical Cryptocaml.Contract *)
+module Contract = Cryptocaml__Contract
+
+
+(** @canonical Cryptocaml.Node_provider *)
+module Node_provider = Cryptocaml__Node_provider
+
+
+(** @canonical Cryptocaml.Transaction *)
+module Transaction = Cryptocaml__Transaction
+
+
+(** @canonical Cryptocaml.Wallet *)
+module Wallet = Cryptocaml__Wallet

@@ -1,0 +1,8 @@
+(library
+ (name cryptocaml)
+ (modules_without_implementation
+  abi
+  contract
+  node_provider
+  wallet
+  transaction))
