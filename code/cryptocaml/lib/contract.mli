@@ -10,6 +10,9 @@ module type Contract = sig
   *)
   val import_contract : string  -> abi
 
+  (* 
+    Get name of contract given abi    
+  *)
   val get_contract_name : abi -> string
 
   (*
