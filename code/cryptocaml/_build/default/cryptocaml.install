@@ -1,8 +1,0 @@
-lib: [
-  "_build/install/default/lib/cryptocaml/META"
-  "_build/install/default/lib/cryptocaml/dune-package"
-  "_build/install/default/lib/cryptocaml/opam"
-]
-bin: [
-  "_build/install/default/bin/cryptocaml"
-]

@@ -3,6 +3,7 @@
  (modules_without_implementation
   abi
   contract
-  node_provider
   wallet
-  transaction))
+  node_provider
+  transaction
+  ))
