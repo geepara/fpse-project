@@ -1,29 +1,28 @@
-module type Contract = sig
-  (* type node = Node_provider *)
-  type t = { name: string; sourceFile: string; abi: Abi.t}
+open Abi
 
-  (* 
-     Takes in string representing contract file location and creates a contract
+type contract_t = { name: string; sourceFile: string; abi: abi }
+
+(* 
+    Takes in string representing contract file location and creates a contract
+*)
+val import_contract : string -> contract_t
+
+(* 
+  Get name of contract given contract object
+*)
+val get_name : contract_t -> string
+
+(* 
+  Returns a list of all the functions available on a contract
+*)
+val functions : contract_t -> string list
+
+(*
+    gets name and inputs for contract constructor
   *)
-  val import_contract : string -> t
+val exec_constructor : contract_t -> unit
 
-  (* 
-    Get name of contract given contract object
-  *)
-  val get_name : t -> string
-
-  (* 
-    Returns a list of all the functions available on a contract
-  *)
-  val functions : t -> string list
-
-  (*
-     gets name and inputs for contract constructor
-   *)
-  val exec_constructor : t -> unit
-
-  (*
-     Execute a function on the contract given its abi, function name, and params
-  *)
-  val exec_function : t -> string -> string list -> unit
-end
+(*
+    Execute a function on the contract given its abi, function name, and params
+*)
+val exec_function : contract_t -> string -> string list -> unit
