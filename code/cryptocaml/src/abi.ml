@@ -1,11 +1,11 @@
-type function_type_t = Function | Constructor [@@deriving of_yojson]
-type input_output_type_t = Int | String | Address [@@deriving of_yojson]
+type function_type_t = Function | Constructor
+type input_output_type_t = Int | String | Address
 
-type input_t = { name: string; inputType: input_output_type_t } [@@deriving of_yojson]
-type output_t = { name: string; outputType: input_output_type_t } [@@deriving of_yojson]
+type input_t = { name: string; inputType: input_output_type_t }
+type output_t = { name: string; outputType: input_output_type_t }
 
-type abi_function = { name: string;  functionType: function_type_t; inputs: input_t list; outputs: output_t list}  [@@deriving of_yojson]
-type abi = abi_function list [@@deriving of_yojson]
+type abi_function = { name: string;  functionType: function_type_t; inputs: input_t list; outputs: output_t list}
+type abi = abi_function list
 
 open Core
 
@@ -164,13 +164,6 @@ let rec generate_abi (functions_list: Yojson.Safe.t list) (accum: abi_function l
     | x::xs ->
       generate_abi xs (get_abi_function_from_yojson_assoc x :: accum)
 
-(* let output_assoc_to_output (output_assoc: Yojson.Safe.t) : output_t =
-
-let function_assoc_to_function (function_assoc: Yojson.Safe.t) : abi_function
-
-let get_string_from_assoc (assoc: Yojson.Safe.t) : string = *)
-  
-
 let yojson_to_abi (yojson_assoc: Yojson.Safe.t) : abi =
   match get_assoc_from_yojson_assoc yojson_assoc with
     | [] -> failwith "abi not found"
@@ -183,12 +176,6 @@ let yojson_to_abi (yojson_assoc: Yojson.Safe.t) : abi =
           let functions_list = get_list_from_yojson yojson_list in
           generate_abi functions_list []
         )
-  (* match abi_of_yojson yojson with
-    | Ok a -> (
-      match a with
-        | Assoc s -> s
-    )
-    | Error s -> failwith s *)
-  
 
-  (* [ { name = Yojson.Safe.to_string yojson; functionType = Constructor; inputs = []; outputs = [] } ] *)
+let get_abi (filename: string) : abi =
+  yojson_to_abi (file_to_yojson filename)

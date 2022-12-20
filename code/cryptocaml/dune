@@ -1,16 +1,16 @@
-(rule
- (target project.zip)
- (deps
-  lib/abi.json
-  lib/abi.mli
-  lib/abi.ml
-  lib/contract.mli
-  lib/contract.ml
-  lib/Node_provider.mli
-  lib/transaction.mli
-  lib/wallet.mli
-  lib/dune
-  test/tests.ml
-  test/dune)
- (action
-  (run zip -R project.zip %{deps})))
+; (rule
+;  (target project.zip)
+;  (deps
+;   lib/abi.json
+;   lib/abi.mli
+;   lib/abi.ml
+;   lib/contract.mli
+;   lib/contract.ml
+;   lib/Node_provider.mli
+;   lib/transaction.mli
+;   lib/wallet.mli
+;   lib/dune
+;   test/tests.ml
+;   test/dune)
+;  (action
+;   (run zip -R project.zip %{deps})))

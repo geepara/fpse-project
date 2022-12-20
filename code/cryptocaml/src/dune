@@ -1,0 +1,16 @@
+(library
+ (name cryptocaml)
+ (modules hex contract abi transaction)
+ (libraries
+  cstruct
+  ; lwt
+  ; cohttp
+  ; cohttp-lwt-unix
+  secp256k1
+  cryptokit
+  core
+  stdio
+  core_unix
+  core_unix.sys_unix)
+ (preprocess
+  (pps ppx_deriving_yojson ppx_deriving.eq)))

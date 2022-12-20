@@ -1,2 +1,3 @@
 .DS_Store
 code/cryptocaml/_build
+code/cryptocaml/src/signature-server/node_modules/*

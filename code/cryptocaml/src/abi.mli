@@ -23,14 +23,14 @@
 
 *)
 
-type function_type_t = Function | Constructor [@@deriving of_yojson]
-type input_output_type_t = Int | String | Address [@@deriving of_yojson]
+type function_type_t = Function | Constructor
+type input_output_type_t = Int | String | Address [@@ppx_deriving compare]
 
-type input_t = { name: string; inputType: input_output_type_t } [@@deriving of_yojson]
-type output_t = { name: string; outputType: input_output_type_t } [@@deriving of_yojson]
+type input_t = { name: string; inputType: input_output_type_t }
+type output_t = { name: string; outputType: input_output_type_t }
 
-type abi_function = { name: string;  functionType: function_type_t; inputs: input_t list; outputs: output_t list}  [@@deriving of_yojson]
-type abi = abi_function list [@@deriving of_yojson]
+type abi_function = { name: string;  functionType: function_type_t; inputs: input_t list; outputs: output_t list}
+type abi = abi_function list
 
 (* 
   Given yojson of abi, return an abi object
@@ -72,3 +72,5 @@ val get_abi_function_from_yojson_assoc : Yojson.Safe.t -> abi_function
 val generate_abi : Yojson.Safe.t list -> abi_function list -> abi
 
 val yojson_to_abi : Yojson.Safe.t -> abi
+
+val get_abi : string -> abi

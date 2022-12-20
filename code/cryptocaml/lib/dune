@@ -1,7 +1,0 @@
-(library
- (name cryptocaml)
- (modules contract abi)
- (libraries stdio core_unix core_unix.sys_unix)
- (preprocess
-  (pps ppx_deriving_yojson))
- (modules_without_implementation wallet node_provider transaction))
